@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="ConfigServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="configuration-service_main" />
+    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <extension name="net.ashald.envfile">
+      <option name="IS_ENABLED" value="false" />
+      <ENTRIES />
+    </extension>
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.tpam.service.configuration.ConfigServiceApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <envs>
+      <env name="ENCRYPTION_KEY" value="kqdhl0aI2u" />
+      <env name="CONFIG_REPO" value="$PROJECT_DIR$/../../cluster/config-repo" />
+      <env name="REPO_DEFAULT_LABEL" value="trade-service-repo" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

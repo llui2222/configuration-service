@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+    <springProperty name="LOG_PATH" source="logging.path"/>
+
+    <springProperty name="SERVICE_NAME" source="spring.application.name" defaultValue="service"/>
+    <springProperty name="LOG_PATTERN" source="logging.pattern"
+                    defaultValue="%4relative [%d] %X{identity} [%thread] %-5level %logger{35} - %msg%n"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/current/${SERVICE_NAME}.log"/>
+    <property name="LOG_ARCHIVE" value="${LOG_PATH}/archive}"/>
+    <timestamp key="startTime" datePattern="yyyyMMdd'T'HHmmss"/>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_ARCHIVE}/${SERVICE_NAME}/${SERVICE_NAME}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>45</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

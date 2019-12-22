@@ -1,0 +1,41 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: ["health", "info", "prometheus"]
+spring:
+  application:
+    name: configuration-service
+  security:
+    user:
+      name: config_user
+      password: '{cipher}7b7a1ee359f64f8f3a5c43e9cc7f76d0c643ee5391cf3102abeac8fab926e96d'
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${CONFIG_REPO}
+          skipSslValidation: true
+          default-label: ${REPO_DEFAULT_LABEL:master}
+          searchPaths: '{application}'
+
+server:
+  port: 8888
+eureka:
+  instance:
+    hostname: ${DEPLOY_HOST:localhost}
+    metadata-map:
+      user: ${spring.security.user.name}
+      password: ${spring.security.user.password}
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_LIST:http://localhost:8761/eureka/}
+encrypt:
+  key: ${ENCRYPTION_KEY}
+logging:
+  level:
+    com.xm: DEBUG
+    org.springframework.cloud.config: OFF
+
+
+  

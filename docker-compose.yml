@@ -1,0 +1,22 @@
+version: "3"
+services:
+  configuration-service:
+    image: $RELEASE_IMAGE
+    environment:
+      SERVER_PORT: 8888
+      LOGGING_MODE: logstash
+      DEPLOY_HOST: configuration-service
+      CONFIG_REPO: $CONFIG_REPO
+      ENCRYPTION_KEY: $ENCRYPTION_KEY
+      EUREKA_SERVER_LIST: http://eureka-peer-1:8761/eureka/,http://eureka-peer-2:8761/eureka/
+    ports:
+      - 8888:8888
+    networks:
+      - tpam
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+networks:
+  tpam:
+    external: true

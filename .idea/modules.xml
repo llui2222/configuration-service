@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/configuration-service.iml" filepath="$PROJECT_DIR$/.idea/modules/configuration-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/configuration-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/configuration-service_main.iml" group="configuration-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/configuration-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/configuration-service_test.iml" group="configuration-service" />
+      <module fileurl="file://$PROJECT_DIR$/src/main/main.iml" filepath="$PROJECT_DIR$/src/main/main.iml" />
+    </modules>
+  </component>
+</project>
